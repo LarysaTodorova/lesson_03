@@ -14,7 +14,7 @@ public class Client {
 
         ProductController controller = context.getBean(ProductController.class);
 
-        Product product = controller.getById(2L);
+        Product product = controller.getById(3L);
 
         System.out.println(product);
     }
