@@ -15,7 +15,7 @@ public class CarApp {
 
         CarController controller = context.getBean(CarController.class);
 
-        Car car = controller.getById(1L);
+        Car car = controller.getById(2L);
 
         System.out.println(car);
     }

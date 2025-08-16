@@ -7,13 +7,24 @@ public class Car {
 
     private Long id;
     private String producer;
-    private BigDecimal price;
     private String model;
+    private BigDecimal price;
+    private String article;
 
-    public Car(Long id, String producer, BigDecimal price) {
+    public Car(Long id, String producer  , String model, BigDecimal price) {
         this.id = id;
         this.producer = producer;
+        this.model = model;
         this.price = price;
+
+    }
+
+    public String getArticle() {
+        return article;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
     }
 
     public Long getId() {
@@ -51,12 +62,12 @@ public class Car {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Car car)) return false;
-        return Objects.equals(id, car.id) && Objects.equals(producer, car.producer) && Objects.equals(price, car.price) && Objects.equals(model, car.model);
+        return Objects.equals(id, car.id) && Objects.equals(producer, car.producer) && Objects.equals(price, car.price) && Objects.equals(model, car.model) && Objects.equals(article, car.article);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, producer, price, model);
+        return Objects.hash(id, producer, price, model, article);
     }
 
     @Override
@@ -64,8 +75,9 @@ public class Car {
         return "Car{" +
                 "id=" + id +
                 ", producer='" + producer + '\'' +
-                ", price=" + price +
                 ", model='" + model + '\'' +
+                ", price=" + price +
+                ", article='" + article + '\'' +
                 '}';
     }
 }
