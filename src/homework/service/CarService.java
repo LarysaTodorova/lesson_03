@@ -2,8 +2,10 @@ package homework.service;
 
 import homework.entity.Car;
 
+import java.util.Optional;
+
 public interface CarService {
 
-    Car getById(Long id);
+    Optional<Car> getById(Long id);
 
 }

@@ -4,6 +4,8 @@ import homework.entity.Car;
 import homework.service.CarServiceImpl;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class CarController {
 
@@ -13,7 +15,7 @@ public class CarController {
         this.carService = carService;
     }
 
-    public Car getById(Long id) {
+    public Optional<Car> getById(Long id) {
        return carService.getById(id);
     }
 }

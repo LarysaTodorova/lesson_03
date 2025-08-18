@@ -2,8 +2,10 @@ package homework.repository;
 
 import homework.entity.Car;
 
+import java.util.Optional;
+
 
 public interface CarRepository {
 
-    Car getCarById(Long id);
+  Optional<Car> getCarById(Long id);
 }

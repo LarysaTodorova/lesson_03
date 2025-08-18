@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @PropertySource("classpath:application.properties")
 @Service
 public class CarServiceImpl implements CarService {
@@ -19,12 +21,15 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Car getById(Long id) {
-        Car car = repository.getCarById(id);
-        if (car != null) {
+    public Optional<Car> getById(Long id) {
+        Optional<Car> optionalCar = repository.getCarById(id);
+        if (optionalCar.isPresent()) {
+            Car car = optionalCar.get();
             setArticle(car);
+            return Optional.of(car);
+        } else {
+            throw new IllegalArgumentException("Entity with ID = " + id + " not found");
         }
-        return car;
     }
 
     private void setArticle(Car car) {
